@@ -1,0 +1,183 @@
+/*---------------------------------------------------------------
+	Media Queries
+ˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍ
+	Mixins / Variables (override in app-variables)
+˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭*/
+$JS_BREAKPOINTS: false !default;
+$JS_BREAKPOINTS_OVERLAY: false !default;
+$Z_BREAKPOINT_OVERLAY: 1000;
+
+$SMALL_MIN: 480px !default;
+$MEDIUM_MIN: 768px !default;
+$LARGE_MIN: 992px !default;
+$XLARGE_MIN: 1134px !default;
+$BODY_MAX: $XLARGE_MIN !default;
+$CONTENT_MAX: $XLARGE_MIN - 40px !default;
+$SMALL_WRAP_MAX: $SMALL_MIN ;
+
+// Max breakpoint values
+$XSMALL_MAX: strip-units($SMALL_MIN) -1 + 'px';
+$SMALL_MAX: strip-units($MEDIUM_MIN) -1 + 'px';
+$MEDIUM_MAX: strip-units($LARGE_MIN) -1 + 'px';
+$LARGE_MAX: strip-units($XLARGE_MIN) -1 + 'px';
+$MEDIA: 'screen' !default;
+
+$MEDIA_XSMALL_ONLY: "#{$MEDIA} and (max-width: #{$XSMALL_MAX})";
+$MEDIA_SMALL_ONLY: "#{$MEDIA} and (min-width: #{$SMALL_MIN}) and (max-width: #{$SMALL_MAX})";
+$MEDIA_SMALL: "#{$MEDIA} and (min-width: #{$SMALL_MIN})";
+$MEDIA_MEDIUM: "#{$MEDIA} and (min-width: #{$MEDIUM_MIN})";
+$MEDIA_MEDIUM_ONLY: "#{$MEDIA} and (min-width: #{$MEDIUM_MIN}) and (max-width: #{$MEDIUM_MAX})";
+$MEDIA_LARGE: "#{$MEDIA} and (min-width: #{$LARGE_MIN})";
+$MEDIA_LARGE_ONLY: "#{$MEDIA} and (min-width: #{$LARGE_MIN}) and (max-width: #{$LARGE_MAX})";
+$MEDIA_XLARGE: "#{$MEDIA} and (min-width: #{$XLARGE_MIN})";
+$MEDIA_PRINT: "print";
+
+@mixin xSmall() {
+	@media #{$MEDIA_XSMALL_ONLY} {
+		@content;
+	}
+};
+@mixin xsmall() {
+	@media #{$MEDIA_XSMALL_ONLY} {
+		@content;
+	}
+};
+@mixin xSmallOnly() {
+	@media #{$MEDIA_XSMALL_ONLY} {
+		@content;
+	}
+};
+@mixin small() {
+
+	@media #{$MEDIA_SMALL} {
+		@content;
+	}
+};
+@mixin smallOnly() {
+	@media #{$MEDIA_SMALL_ONLY} {
+		@content;
+	}
+};
+@mixin medium() {
+		@media #{$MEDIA_MEDIUM} {
+			@content;
+		}
+};
+@mixin mediumOnly() {
+	@media #{$MEDIA_MEDIUM_ONLY} {
+		@content;
+	}
+};
+@mixin large() {
+	@media #{$MEDIA_LARGE} {
+		@content;
+	}
+};
+@mixin largeOnly() {
+	@media #{$MEDIA_LARGE_ONLY} {
+		@content;
+	}
+};
+@mixin xlarge() {
+	@media #{$MEDIA_XLARGE} {
+		@content;
+	}
+};
+
+@mixin print() {
+	@media #{$MEDIA_PRINT} {
+		@content;
+	}
+};
+
+$MEDIA_CONTENT_MAX: "#{$MEDIA} and (min-width: #{$CONTENT_MAX})";
+@mixin contentMax() { 
+	@media #{$MEDIA_CONTENT_MAX} {
+		@content;
+	}
+};
+
+$MEDIA_BODY_MAX: "#{$MEDIA} and (min-width: #{$BODY_MAX})";
+@mixin bodyMax() { 
+	@media #{$MEDIA_BODY_MAX} {
+		@content;
+	}
+};
+
+$MEDIA_SMALL_WRAP: "#{$MEDIA} and (min-width: #{$SMALL_WRAP_MAX}) and (max-width: #{$SMALL_MAX})";
+@mixin smallWrapMax() { 
+	@media #{$MEDIA_SMALL_WRAP} {
+		@content;
+	}
+};
+
+/*---------------------------------------------------------------
+	Helper classes
+˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭*/
+
+//TODO: Make more selector efficient
+// .hide-for-small-only { @include smallOnly {display:none} }
+// .hide-for-medium-only { @include mediumOnly {display:none} }
+// .hide-for-large-only { @include largeOnly {display:none} }
+// .hide-for-medium, .show-for-small-only { @include medium {display:none !important} }
+// .hide-for-large { @include large {display:none} }
+// .hide-for-xlarge { @include xlarge {display:none} }
+
+// .hide-for-print { @include print {display:none}}
+
+// .show-for-medium-only { display:none; @include mediumOnly {display:inherit } }
+// .show-for-large-only { display:none; @include largeOnly {display:inherit} }
+// .show-for-xlarge-only, .show-for-xlarge { display:none; @include xlarge {display:inherit} }
+
+// .show-for-medium { display:none; @include medium {display:inherit } }
+// .show-for-large { display:none; @include large {display:inherit} }
+
+// .show-for-print-only { display:none; @include print { display:inherit; }}
+
+
+@if $JS_BREAKPOINTS  == true {
+	/*---------------------------------------------------------------
+		Named breakpoints (for Javascript)
+	˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭*/
+	@include xsmall { head{font-family:'xsmall'}}
+	@include small { head{font-family:'small'}}
+	@include medium { head{font-family:'medium'}}
+	@include large { head{font-family:'large'}}
+	@include xlarge { head{font-family:'xlarge'}}
+	@include bodyMax { head{font-family:'bodymax'}}
+
+	/*---------------------------------------------------------------
+		Breakpoint widths (for Javascript)
+	˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭*/
+	title {font-family: '{_small_:_#{$SMALL_MAX}_,_medium_:_#{$MEDIUM_MIN}_,_large_:_#{$LARGE_MIN}_,_xlarge_:_#{$XLARGE_MIN}_,_bodymax_:_#{$BODY_MAX}_,_contentmax_:_#{$CONTENT_MAX}_}';}
+}
+
+
+@if $JS_BREAKPOINTS_OVERLAY == true {
+	/*---------------------------------------------------------------
+		Debug breakpoints
+	˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭*/
+	body:before {
+	position:fixed;
+	bottom:0;
+	left:50%;
+	transform:translateX(-50%);
+	padding:0 4px 3px 4px;
+	font-size:15px;
+	color:black;
+	background:#000;
+	background:rgba(0,0,0,.3);
+	text-shadow:0 1px 1px rgba(0,0,0,.5);
+	z-index:$Z_BREAKPOINT_OVERLAY;
+	display:inline-block;
+	border-radius:0 0 3px 0;
+	}
+
+	@include xsmall { body:before {content:"xsmall (0px to #{$XSMALL_MAX})"} }
+	@include small { body:before {content:"small (#{$SMALL_MIN} to #{$MEDIUM_MIN})"} } // weird bug here
+	@include medium { body:before {content:"medium (#{$MEDIUM_MIN} to #{$LARGE_MIN})"} }
+	@include large { body:before {content:"large (#{$LARGE_MIN} to #{$XLARGE_MIN})"} }
+	@include xlarge { body:before {content:"xlarge (>#{$XLARGE_MIN})"} }
+	// @include xlarge { body:before {content:"xlarge (#{$XLARGE_MIN} to #{$BODY_MAX})"} }
+	// @include bodyMax { body:before {content:"bodyMax (>#{$BODY_MAX})"} }
+}

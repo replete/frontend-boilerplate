@@ -1,6 +1,38 @@
-// Default app styles here
+@charset "UTF-8";
 
-$color: blue;
+/*  Defaults
+˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭*/
+@import "vendor/normalize";
+
+/*  Helpers
+˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭*/
+@import "helpers/accessibility";
+@import "helpers/clearfix";
+@import "helpers/easing";
+@import "helpers/focus";
+@import "helpers/high-res-images";
+@import "helpers/placeholder";
+@import "helpers/non-breaking-parent";
+@import "helpers/scrollbars";
+@import "helpers/visibility";
+
+/*  Vendor
+˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭*/
+    // frameworks ...
+
+/*  App
+˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭*/
+
+// Settings & Variables:
+@import "base/app-variables";
+
+@import "base/viewport";
+@import "base/betterdefaults";
+@import "base/printdefaults";
+@import "base/mediaQueries";
+
+
+$color: blue; 
 html {
     border:10px solid $color;
 

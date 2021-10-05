@@ -1,0 +1,13 @@
+@mixin focusShadow {
+box-shadow: 0 0 2px 1px rgba($BRAND,0.5) !important;
+}
+
+@mixin focusOutline {
+box-shadow:none;
+transition: $DURATION all $EASE;
+
+	&:focus {
+	outline:0;
+	@include focusShadow;
+	}
+}

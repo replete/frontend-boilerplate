@@ -1,0 +1,17 @@
+/*---------------------------------------------------------------
+	Non-breaking parent
+ˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍ
+
+	For instances when you can't control whitespace and using
+	{display:inline-block}
+
+˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭*/
+.non-breaking-parent {
+font-size: 0 ;
+
+	> * {
+	font-size: 1rem ;
+	display: inline-block;
+	vertical-align: top;
+	}
+}

@@ -1,0 +1,20 @@
+// Strip unit suffix
+@function strip-units($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+// Pixels to em
+@function pem($px, $base: 16) {
+    @return (strip-units($px / $base)) + em;
+}
+// Ems to pixels
+@function emp($em, $base: 16) {
+    @return (strip-units(ceil($em * $base))) + px;
+}
+//Pixels to rem
+@function prem($px, $base: 16) {
+    @return (strip-units($px / $base)) + rem;
+}

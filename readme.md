@@ -10,7 +10,7 @@ Frontend tooling scaffolding suited to new website template builds with sass and
 
 - [x] Gulp4 with ES module syntax
 - [x] browsersync server with hot-reloading of assets
-- [ ] CSS Framework basic (normalize, helpers etc)
+- [x] CSS Framework basic (normalize, helpers etc)
 - [ ] CSS Framework: modern sass conventions / standards
 - [ ] CSS / Scss linting (?)
 - [ ] CSS optimization (autoprefixer, sourcemaps, minifier, combinemq, csso, ...)

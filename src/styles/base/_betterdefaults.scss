@@ -1,0 +1,158 @@
+/*---------------------------------------------------------------
+	Better Defaults
+ˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍˍ
+˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭˭*/
+
+h1,h2,h3,h4,h5,h6 {
+// Browser default margins are useless
+margin:0;
+}
+
+/*csslint universal-selector:false */
+* {
+box-sizing:border-box;
+}
+
+html {
+// Prevent iOS and IE text size adjust after device orientation change, without disabling user zoom.
+font-family:sans-serif;
+-ms-text-size-adjust: 100%;
+-webkit-text-size-adjust: 100%;
+// font-family: sans-serif; 
+}
+
+body {
+margin: 0 auto;
+}
+
+img {
+// Sensible default for responsive sites - constrain images
+display:inline-block;
+width:100%;
+// Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+vertical-align: middle;
+border:0;
+}
+
+textarea {
+// Only allow vertical resizing on textareas by default
+resize: vertical;
+
+// Remove default vertical scrollbar in IE 8/9/10/11.
+overflow: auto;
+
+}
+
+// HTML5 elements
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+// Correct `inline-block` display not defined in IE 8/9.
+display: inline-block;
+
+// Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+vertical-align: baseline;
+}
+
+//Prevent modern browsers from displaying `audio` without controls.
+//Remove excess height in iOS 5 devices.
+// audio:not([controls]) {
+// display: none;
+// height: 0;
+// }
+
+ // Address `[hidden]` styling not present in IE 8/9/10.
+ // Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+[hidden],
+template {
+display: none;
+}
+
+
+// Correct overflow not hidden in IE 9/10/11.
+svg:not(:root) {
+overflow: hidden;
+}
+
+// Address `overflow` set to `hidden` in IE 8/9/10/11.
+button {
+overflow: visible;
+}
+
+ // Address inconsistent `text-transform` inheritance for `button` and `select`.
+ // All other form control elements do not inherit `text-transform` values.
+ // Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ // Correct `select` style inheritance in Firefox.
+button,
+select {
+text-transform: none;
+}
+
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+box-sizing: border-box; /* 1 */
+padding: 0; /* 2 */
+}
+
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+// input[type="number"]::-webkit-inner-spin-button,
+// input[type="number"]::-webkit-outer-spin-button {
+//   height: auto;
+// }
+
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+td,
+th {
+padding: 0;
+}
+
+ul,ol,figure, dl {
+padding: 0;
+margin:0;
+}
+
+a {
+// Because it's 2015
+text-decoration:none;
+}
+
+address {
+font-style:normal;
+}
+// Because this is popular stylistic choice
