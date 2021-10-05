@@ -1,9 +1,10 @@
 // Default app styles here
 
+$color: blue;
 html {
-    border:10px solid red;
+    border:10px solid $color;
 
-    &__extra {
-        color:red
+    h1 {
+        color:$color
     }
 }

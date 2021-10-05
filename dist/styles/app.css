@@ -1,6 +1,6 @@
 html {
-  border: 10px solid red;
+  border: 10px solid blue;
 }
-html__extra {
-  color: red;
+html h1 {
+  color: blue;
 }

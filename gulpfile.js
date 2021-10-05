@@ -1,11 +1,11 @@
 import gulp from 'gulp';
-import sass from 'sass';
 import gulpSass from 'gulp-sass';
+import dartSass from 'sass';
 import del from 'del';
 import browserSync from 'browser-sync';
 import fancyLog from 'fancy-log';
 
-const gsass = gulpSass(sass);
+const sass = gulpSass(dartSass);
 const browserSyncServer = browserSync.create('LocalDevServer');
 
 const paths = {
@@ -39,7 +39,7 @@ function documents() {
 
 function styles() {
     return gulp.src(paths.styles.source)
-        .pipe(gsass().on('error', gsass.logError)) 
+        .pipe(sass().on('error', sass.logError)) 
         .pipe(gulp.dest(paths.styles.destination))
         .pipe(browserSyncServer.stream());
 }
