@@ -1,0 +1,9 @@
+// Default app styles here
+
+html {
+    border:10px solid red;
+
+    &__extra {
+        color:red
+    }
+}
