@@ -2,8 +2,8 @@
 
 Frontend tooling scaffolding suited to new website template builds with sass and hot-reloading by default.
 
-* `gulp` | `gulp build` - full build of assets
 * `npm start` | `gulp dev` runs development server with hot reloading via [browserSync](https://browsersync.io)
+* `gulp` | `gulp build` - full build of assets
 * Tested with `Gulp 4.0.2` and `Node 16.10.0`
 
 ## TODO
