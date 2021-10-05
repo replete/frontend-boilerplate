@@ -39,7 +39,8 @@ function documents() {
 
 function styles() {
     return gulp.src(paths.styles.source)
-        .pipe(sass().on('error', sass.logError)) 
+        .pipe(sass.sync().on('error', sass.logError)) 
+        // sass.sync() is faster: https://github.com/dlmanning/gulp-sass
         .pipe(gulp.dest(paths.styles.destination))
         .pipe(browserSyncServer.stream());
 }
