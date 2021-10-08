@@ -3,6 +3,10 @@ import gulpSass from 'gulp-sass';
 import dartSass from 'sass';
 import del from 'del';
 import browserSync from 'browser-sync';
+import imagemin from 'gulp-imagemin';
+import imageminOptipng from 'imagemin-optipng';
+import imageminSvgo from 'imagemin-svgo';
+import imageminMozjpeg from 'imagemin-svgo';
 import fancyLog from 'fancy-log';
 
 const sass = gulpSass(dartSass);
@@ -23,7 +27,7 @@ const paths = {
         destination: 'dist/scripts'
     },
     images: {
-        source: 'src/images/**/*.{png,jpg,jpeg,webp}',
+        source: 'src/images/**/*.{png,jpg,jpeg,webp,gif}',
         destination: 'dist/images'
     }
 }
@@ -39,8 +43,8 @@ function documents() {
 
 function styles() {
     return gulp.src(paths.styles.source)
-        .pipe(sass.sync().on('error', sass.logError)) 
-        // sass.sync() is faster: https://github.com/dlmanning/gulp-sass
+        .pipe(sass.sync().on('error', sass.logError))
+        // sass.sync() is faster than sass(): https://github.com/dlmanning/gulp-sass
         .pipe(gulp.dest(paths.styles.destination))
         .pipe(browserSyncServer.stream());
 }
@@ -52,6 +56,16 @@ function scripts() {
 
 function images() {
     return gulp.src(paths.images.source, {since: gulp.lastRun(images)})
+        .pipe(imagemin([
+            imageminOptipng({ optimizationLevel: 5 }), 
+            imageminSvgo({
+                plugins: [
+                    { removeViewBox: true },
+                    { cleanupIDs: false }
+                ]
+            }),
+            imageminMozjpeg({ quality: 75, progressive: false })
+        ]))
         .pipe(gulp.dest(paths.images.destination));
 }
 
