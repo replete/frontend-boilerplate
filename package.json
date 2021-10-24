@@ -5,6 +5,8 @@
 	"main": "gulpfile.js",
 	"type": "module",
 	"scripts": {
+		"benchmark": "time gulp build",
+		"build": "gulp build",
 		"dev": "nodemon --watch gulpfile.js --quiet --exitcrash --exec gulp dev",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"update-packages": "npx npm-check-updates -u"
