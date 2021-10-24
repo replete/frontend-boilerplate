@@ -4,7 +4,7 @@ Frontend tooling scaffolding suited to new website template builds with sass and
 
 -   `gulp dev` runs development server with hot reloading via [browserSync](https://browsersync.io)
 -   `npm run dev` runs `gulp dev` while nodemon reloads gulp after `gulpfile.js` changes. (`npm -g nodemon`)
--   `gulp` | `gulp build` - full build of assets
+-   `gulp` | `gulp build` | `npm run build` - full build of assets
 -   Tested with `Gulp 4.0.2` and `Node 16.10.0`
 
 ## TODO
@@ -17,9 +17,9 @@ Frontend tooling scaffolding suited to new website template builds with sass and
 -   [x] JS optimization
 -   [x] Watch gulpfile.js for changes and reload
 -   [x] JS Sourcemaps
+-   [x] Split off JS optimization steps into separate gulp tasks
 -   [ ] JS concatenation
 -   [ ] CSS optimization (autoprefixer, sourcemaps, minifier, combinemq, csso, ...)
--   [ ] Split off JS optimization
 -   [ ] CSS Framework: modern sass conventions / standards
 -   [ ] CSS / Scss linting (?)
 -   [ ] SVG to Iconfont generation, w/ styles

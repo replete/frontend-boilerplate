@@ -56,10 +56,13 @@ function styles() {
 }
 
 function scripts() {
+	return gulp.src(paths.scripts.source).pipe(gulp.dest(paths.scripts.destination))
+}
+
+function optimizeScripts() {
 	return gulp
-		.src(paths.scripts.source)
+		.src(`${paths.scripts.destination}/**/!(*.min).js`)
 		.pipe(sourcemaps.init())
-		.pipe(gulp.dest(paths.scripts.destination))
 		.pipe(terser({ keep_fnames: false, mangle: true }))
 		.pipe(sourcemaps.write())
 		.pipe(rename({ extname: '.min.js' }))
@@ -84,7 +87,7 @@ function images() {
 function watchFiles(done) {
 	gulp.watch(paths.documents.source, gulp.series(documents, browserSyncReload))
 	gulp.watch(paths.styles.source, styles)
-	gulp.watch(paths.scripts.source, gulp.series(scripts, browserSyncReload))
+	gulp.watch(paths.scripts.source, gulp.series(scripts, optimizeScripts, browserSyncReload))
 	gulp.watch(paths.images.source, images)
 	done()
 }
@@ -104,9 +107,20 @@ function browserSyncReload(done) {
 	done()
 }
 
-const build = gulp.series(clean, gulp.parallel(documents, styles, scripts, images))
+const build = gulp.series(clean, gulp.parallel(documents, styles, scripts), optimizeScripts, images)
 
 const dev = gulp.series(clean, build, gulp.parallel(watchFiles, serve))
 
-export { clean, documents, styles, scripts, images, watchFiles as watch, serve, build, dev }
+export {
+	clean,
+	documents,
+	styles,
+	scripts,
+	optimizeScripts,
+	images,
+	watchFiles as watch,
+	serve,
+	build,
+	dev,
+}
 export default build
