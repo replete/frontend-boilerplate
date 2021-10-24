@@ -29,6 +29,7 @@
 		"del": "^6.0.0",
 		"gulp": "^4.0.2",
 		"gulp-imagemin": "^8.0.0",
+		"gulp-rename": "^2.0.0",
 		"gulp-sass": "^5.0.0",
 		"gulp-terser": "^2.1.0",
 		"imagemin": "^8.0.1",
