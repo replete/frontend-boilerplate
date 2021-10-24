@@ -3,9 +3,9 @@
 [*]
 end_of_line = lf
 
-# 4 space indentation
+# 4 tab indentation
 [*.{js,mjs,ts}]
-indent_style = space
+indent_style = tab
 indent_size = 4
 
 # Set default charset
