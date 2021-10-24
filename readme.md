@@ -15,10 +15,12 @@ Frontend tooling scaffolding suited to new website template builds with sass and
 -   [x] SVG optimization
 -   [x] JS optimization
 -   [x] Watch gulpfile.js for changes and reload
+-   [x] JS Sourcemaps
 -   [ ] JS concatenation
+-   [ ] CSS optimization (autoprefixer, sourcemaps, minifier, combinemq, csso, ...)
+-   [ ] Split off JS optimization
 -   [ ] CSS Framework: modern sass conventions / standards
 -   [ ] CSS / Scss linting (?)
--   [ ] CSS optimization (autoprefixer, sourcemaps, minifier, combinemq, csso, ...)
 -   [ ] SVG to Iconfont generation, w/ styles
 -   [ ] SVG bundling (?)
 -   [ ] Default browsersync proxy config

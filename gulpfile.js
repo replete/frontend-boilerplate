@@ -9,6 +9,7 @@ import imageminSvgo from 'imagemin-svgo'
 import imageminMozjpeg from 'imagemin-svgo'
 import terser from 'gulp-terser'
 import rename from 'gulp-rename'
+import sourcemaps from 'gulp-sourcemaps'
 
 const sass = gulpSass(dartSass)
 const browserSyncServer = browserSync.create('LocalDevServer')
@@ -57,8 +58,10 @@ function styles() {
 function scripts() {
 	return gulp
 		.src(paths.scripts.source)
+		.pipe(sourcemaps.init())
 		.pipe(gulp.dest(paths.scripts.destination))
-		.pipe(terser({ keep_fnames: true, mangle: false }))
+		.pipe(terser({ keep_fnames: false, mangle: true }))
+		.pipe(sourcemaps.write())
 		.pipe(rename({ extname: '.min.js' }))
 		.pipe(gulp.dest(paths.scripts.destination))
 }
