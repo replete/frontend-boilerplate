@@ -149,12 +149,11 @@ function browserSyncReload(done) {
 }
 
 const build = gulp.series(
-	clean,
-	gulp.parallel(documents, styles, scripts, images),
-	gulp.parallel(optimizeScripts, optimizeStyles),
+	gulp.parallel(documents, scripts, styles),
+	gulp.parallel(optimizeScripts, optimizeStyles, images),
 )
 
-const dev = gulp.series(clean, build, gulp.parallel(watchFiles, serve))
+const dev = gulp.series(build, gulp.parallel(watchFiles, serve))
 
 export {
 	clean,
