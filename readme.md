@@ -18,7 +18,7 @@ Frontend tooling scaffolding suited to new website template builds with sass and
 -   [x] Watch gulpfile.js for changes and reload
 -   [x] JS Sourcemaps
 -   [x] Split off JS optimization steps into separate gulp tasks
--   [ ] JS concatenation
+-   [x] JS concatenation/bundling
 -   [ ] CSS optimization (autoprefixer, sourcemaps, minifier, combinemq, csso, ...)
 -   [ ] CSS Framework: modern sass conventions / standards
 -   [ ] CSS / Scss linting (?)
