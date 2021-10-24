@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "gulp dev",
+		"dev": "nodemon --watch gulpfile.js --quiet --exitcrash --exec gulp dev",
 		"update-packages": "npx npm-check-updates -u"
 	},
 	"repository": {
@@ -37,5 +37,8 @@
 		"imagemin-optipng": "^8.0.0",
 		"imagemin-svgo": "^10.0.0",
 		"sass": "^1.43.3"
+	},
+	"optionalDependencies": {
+		"nodemon": "^2.0.14"
 	}
 }
