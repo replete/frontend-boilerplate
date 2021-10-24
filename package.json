@@ -1,12 +1,12 @@
 {
 	"name": "frontend-boilerplate",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Frontend boilerplate 2021",
 	"main": "gulpfile.js",
 	"type": "module",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "nodemon --watch gulpfile.js --quiet --exitcrash --exec gulp dev",
+		"test": "echo \"Error: no test specified\" && exit 1",
 		"update-packages": "npx npm-check-updates -u"
 	},
 	"repository": {

@@ -14,7 +14,7 @@ Frontend tooling scaffolding suited to new website template builds with sass and
 -   [x] Image asset optimization
 -   [x] SVG optimization
 -   [x] JS optimization
--   [ ] Watch gulpfile.js for changes and reload
+-   [x] Watch gulpfile.js for changes and reload
 -   [ ] JS concatenation
 -   [ ] CSS Framework: modern sass conventions / standards
 -   [ ] CSS / Scss linting (?)
