@@ -19,7 +19,7 @@ Frontend tooling scaffolding suited to new website template builds with sass and
 -   [x] JS Sourcemaps
 -   [x] Split off JS optimization steps into separate gulp tasks
 -   [x] JS concatenation/bundling
--   [ ] CSS optimization (autoprefixer, sourcemaps, minifier, combinemq, csso, ...)
+-   [x] CSS optimization (autoprefixer, sourcemaps, ~~combinemq~~, cssnano, ...)
 -   [ ] CSS Framework: modern sass conventions / standards
 -   [ ] CSS / Scss linting (?)
 -   [ ] SVG to Iconfont generation, w/ styles

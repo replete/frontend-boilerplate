@@ -12,6 +12,9 @@ import rename from 'gulp-rename'
 import sourcemaps from 'gulp-sourcemaps'
 import concat from 'gulp-concat'
 import mergeStream from 'merge-stream'
+import postcss from 'gulp-postcss'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
 
 const sass = gulpSass(dartSass)
 const browserSyncServer = browserSync.create('LocalDevServer')
@@ -49,14 +52,23 @@ function documents() {
 }
 
 function styles() {
-	return (
-		gulp
-			.src(`${paths.styles.source}/**/*.scss`)
-			.pipe(sass.sync().on('error', sass.logError))
-			// sass.sync() is faster than sass(): https://github.com/dlmanning/gulp-sass
-			.pipe(gulp.dest(paths.styles.destination))
-			.pipe(browserSyncServer.stream())
-	)
+	// sass.sync() is faster than sass(): https://github.com/dlmanning/gulp-sass
+	return gulp
+		.src(`${paths.styles.source}/**/*.scss`)
+		.pipe(sourcemaps.init())
+		.pipe(sass.sync().on('error', sass.logError))
+		.pipe(postcss([autoprefixer()]))
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest(paths.styles.destination))
+		.pipe(browserSyncServer.stream())
+}
+
+function optimizeStyles() {
+	return gulp
+		.src(`${paths.styles.destination}/**/*.css`)
+		.pipe(postcss([cssnano()]))
+		.pipe(rename({ extname: '.min.css' }))
+		.pipe(gulp.dest(paths.styles.destination))
 }
 
 function scripts() {
@@ -112,7 +124,7 @@ function watchFiles(done) {
 		paths.documents.source,
 		gulp.series(documents, browserSyncReload),
 	)
-	gulp.watch(paths.styles.source, styles)
+	gulp.watch(paths.styles.source, gulp.series(styles, optimizeStyles))
 	gulp.watch(
 		paths.scripts.source,
 		gulp.series(scripts, optimizeScripts, browserSyncReload),
@@ -138,9 +150,8 @@ function browserSyncReload(done) {
 
 const build = gulp.series(
 	clean,
-	gulp.parallel(documents, styles, scripts),
-	optimizeScripts,
-	images,
+	gulp.parallel(documents, styles, scripts, images),
+	gulp.parallel(optimizeScripts, optimizeStyles),
 )
 
 const dev = gulp.series(clean, build, gulp.parallel(watchFiles, serve))
@@ -149,6 +160,7 @@ export {
 	clean,
 	documents,
 	styles,
+	optimizeStyles,
 	scripts,
 	optimizeScripts,
 	images,
