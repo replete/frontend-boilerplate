@@ -62,10 +62,10 @@ function scripts() {
 function optimizeScripts() {
 	return gulp
 		.src(`${paths.scripts.destination}/**/!(*.min).js`)
+		.pipe(rename({ extname: '.min.js' }))
 		.pipe(sourcemaps.init())
 		.pipe(terser({ keep_fnames: false, mangle: true }))
-		.pipe(sourcemaps.write())
-		.pipe(rename({ extname: '.min.js' }))
+		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(paths.scripts.destination))
 }
 
