@@ -15,6 +15,7 @@ import mergeStream from 'merge-stream'
 import postcss from 'gulp-postcss'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
+import replace from 'gulp-replace'
 
 const sass = gulpSass(dartSass)
 const browserSyncServer = browserSync.create('LocalDevServer')
@@ -45,9 +46,8 @@ function clean() {
 
 function documents() {
 	return gulp
-		.src(`${paths.documents.source}/**/*.html`, {
-			since: gulp.lastRun(documents),
-		})
+		.src(`${paths.documents.source}/**/*.html`)
+		.pipe(replace('?cb=', `?cb=${new Date().getTime()}`)) // cache-busting
 		.pipe(gulp.dest(paths.documents.destination))
 }
 

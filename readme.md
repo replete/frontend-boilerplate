@@ -20,6 +20,7 @@ Frontend tooling scaffolding suited to new website template builds with sass and
 -   [x] Split off JS optimization steps into separate gulp tasks
 -   [x] JS concatenation/bundling
 -   [x] CSS optimization (autoprefixer, sourcemaps, ~~combinemq~~, cssnano, ...)
+-   [x] Add cachebusting to html files
 -   [ ] CSS Framework: modern sass conventions / standards
 -   [ ] CSS / Scss linting (?)
 -   [ ] SVG to Iconfont generation, w/ styles
