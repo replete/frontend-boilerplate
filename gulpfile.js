@@ -76,12 +76,12 @@ function scripts() {
 		.src(`${paths.scripts.source}/**/*.js`)
 		.pipe(gulp.dest(paths.scripts.destination))
 
-	const bundleHeadScripts = gulp
+	const headScriptsBundle = gulp
 		.src([`${paths.scripts.source}/app_head.js`])
 		.pipe(concat('app_head.bundle.js'))
 		.pipe(gulp.dest(paths.scripts.destination))
 
-	const bundleOtherScripts = gulp
+	const otherScriptsBundle = gulp
 		.src([
 			`${paths.scripts.source}/app.js`,
 			`${paths.scripts.source}/other.js`,
@@ -89,7 +89,7 @@ function scripts() {
 		.pipe(concat('app.bundle.js'))
 		.pipe(gulp.dest(paths.scripts.destination))
 
-	return mergeStream(copyScripts, bundleHeadScripts, bundleOtherScripts)
+	return mergeStream(copyScripts, headScriptsBundle, otherScriptsBundle)
 }
 
 function optimizeScripts() {
