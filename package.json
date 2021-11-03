@@ -27,9 +27,9 @@
 	},
 	"homepage": "https://github.com/replete/frontend-boilerplate#readme",
 	"devDependencies": {
-		"autoprefixer": "^10.3.7",
-		"browser-sync": "^2.27.5",
-		"cssnano": "^5.0.8",
+		"autoprefixer": "^10.4.0",
+		"browser-sync": "^2.27.7",
+		"cssnano": "^5.0.9",
 		"del": "^6.0.0",
 		"gulp": "^4.0.2",
 		"gulp-concat": "^2.6.1",
@@ -45,7 +45,7 @@
 		"imagemin-optipng": "^8.0.0",
 		"imagemin-svgo": "^10.0.0",
 		"merge-stream": "^2.0.0",
-		"sass": "^1.43.3"
+		"sass": "^1.43.4"
 	},
 	"optionalDependencies": {
 		"nodemon": "^2.0.14"
